@@ -23,8 +23,8 @@ and sensible cache settings automatically.
 
 ## Adding Client Media
 
-The results section in `index.html` is intentionally marked `hidden` until
-real client media arrives. Replace the placeholder markup with optimized
-images and video, remove the `hidden` attribute, and restore the Results link
-in the main navigation. Use descriptive alternative text for every project
-image.
+Project photos live in `assets/` and appear in the Results section of
+`index.html`. To add another before and after pair, copy the
+`<article class="before-after">` block, point it at the new images, and keep
+the files around 1200px on the long edge. Use descriptive alternative text for
+every project image.

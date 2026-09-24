@@ -471,18 +471,32 @@
         background: var(--panel);
       }
 
-      .media-placeholder {
-        min-height: 330px;
+      .media-pair {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--line);
       }
 
       .half {
         position: relative;
+        aspect-ratio: 4 / 3;
+        margin: 0;
         display: grid;
         align-content: end;
         padding: 18px;
+        overflow: hidden;
         isolation: isolate;
+        background: var(--panel-2);
+      }
+
+      .half img {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .half::before {
@@ -490,18 +504,11 @@
         position: absolute;
         inset: 0;
         z-index: -1;
+        background: linear-gradient(to top, rgba(11, 12, 13, 0.55), rgba(11, 12, 13, 0) 40%);
       }
 
-      .half.before::before {
-        background:
-          linear-gradient(135deg, rgba(77, 42, 28, 0.92), rgba(22, 20, 18, 0.74)),
-          repeating-linear-gradient(35deg, rgba(213, 133, 84, 0.4) 0 2px, rgba(0, 0, 0, 0) 2px 14px);
-      }
-
-      .half.after::before {
-        background:
-          linear-gradient(135deg, rgba(205, 204, 197, 0.92), rgba(34, 38, 40, 0.68)),
-          repeating-linear-gradient(-35deg, rgba(88, 166, 255, 0.28) 0 2px, rgba(0, 0, 0, 0) 2px 16px);
+      .half.after .tag {
+        background: var(--rust);
       }
 
       .tag {
@@ -771,10 +778,6 @@
           margin-bottom: 14px;
         }
 
-        .media-placeholder {
-          min-height: 220px;
-        }
-
         .video-slot {
           min-height: 120px;
         }
@@ -804,12 +807,8 @@
           border-bottom: 0;
         }
 
-        .media-placeholder {
+        .media-pair {
           grid-template-columns: 1fr;
-        }
-
-        .half {
-          min-height: 190px;
         }
 
         .mini-stat {
@@ -859,6 +858,7 @@
         </a>
         <div class="nav-links">
           <a href="#services">Services</a>
+          <a href="#results">Results</a>
           <a href="#contact">Contact</a>
         </div>
         <a class="button" href="tel:15134004641">Call 513-400-4641</a>
@@ -957,45 +957,48 @@
         </div>
       </section>
 
-      <!-- Remove hidden after replacing the media placeholders with client project assets. -->
-      <section id="results" class="proof-band" aria-labelledby="results-title" hidden>
+      <section id="results" class="proof-band" aria-labelledby="results-title">
         <div class="section-inner">
           <div class="section-head">
             <div>
-              <div class="section-label">Proof Coming Next</div>
-              <h2 id="results-title">A results section ready for real before and afters.</h2>
+              <div class="section-label">Recent Work</div>
+              <h2 id="results-title">See the difference on real steel.</h2>
             </div>
             <p class="section-copy">
-              Once project photos and short clips are available, these slots become the most persuasive part of the site.
+              Photos from a recent job. The laser lifts surface rust off the metal without sandblasting, water, or chemical stripping.
             </p>
           </div>
 
-          <div class="media-grid">
-            <article class="before-after">
-              <div class="media-placeholder" aria-label="Before and after project photo placeholders">
-                <div class="half before">
-                  <span class="tag">Before Photo</span>
-                </div>
-                <div class="half after">
-                  <span class="tag">After Photo</span>
-                </div>
-              </div>
-              <div class="media-caption">
-                <strong>Before and after photos</strong>
-                <span>Drop in the strongest transformation pair when available.</span>
-              </div>
-            </article>
-
-            <article class="before-after">
-              <div class="video-slot" aria-label="Short video placeholder">
-                <span>Short laser clip</span>
-              </div>
-              <div class="media-caption">
-                <strong>Short videos</strong>
-                <span>Add a laser-in-action clip once the first job footage is ready.</span>
-              </div>
-            </article>
-          </div>
+          <article class="before-after">
+            <div class="media-pair">
+              <figure class="half before">
+                <img
+                  src="assets/rust-before.jpg"
+                  width="900"
+                  height="1188"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Before: gray steel surface streaked and spotted with orange surface rust."
+                >
+                <figcaption class="tag">Before</figcaption>
+              </figure>
+              <figure class="half after">
+                <img
+                  src="assets/rust-after.jpg"
+                  width="1195"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                  alt="After laser cleaning: the steel surface restored to bright, clean metal."
+                >
+                <figcaption class="tag">After</figcaption>
+              </figure>
+            </div>
+            <div class="media-caption">
+              <strong>Rust removal on steel</strong>
+              <span>Surface rust laser cleaned on site with no abrasive media.</span>
+            </div>
+          </article>
         </div>
       </section>
 
